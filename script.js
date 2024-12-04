@@ -1,5 +1,5 @@
 const searchInput = document.getElementById('searchInput');
-const planets = document.querySelectorAll('.planet'); // Select all planets
+const planets = document.querySelectorAll('.planet'); // Välj alla planeter
 const planetNames = document.querySelectorAll('.planet-name');
 
 const planetSwedishNames = {
@@ -19,22 +19,22 @@ searchInput.addEventListener('input', function () {
 
   if (query === '') {
     planets.forEach(function (planet) {
-      planet.style.display = 'flex'; // Show all planets when search is cleared
-      planet.querySelector('.planet-name').style.opacity = '1'; // Show the planet names
+      planet.style.display = 'flex'; // visa alla planeters namn efter sök
+      planet.querySelector('.planet-name').style.opacity = '1'; // visa planetens namn
     });
     return;
   }
 
   planets.forEach(function (planet) {
-    const planetClass = planet.classList[1]; // Get the planet's class
+    const planetClass = planet.classList[1]; // Få planetens klass
     const swedishPlanetName = planetSwedishNames[planetClass];
 
-    // Show or hide the planet based on the search query
+    // Visa eller dölj planeten baserat på sökfrågan
     if (swedishPlanetName && swedishPlanetName.toLowerCase().includes(query)) {
-      planet.style.display = 'flex'; // Show the planet
-      planet.querySelector('.planet-name').style.opacity = '1'; // Make the name visible
+      planet.style.display = 'flex'; // visa planeten
+      planet.querySelector('.planet-name').style.opacity = '1'; // Gör namnet synligt
     } else {
-      planet.style.display = 'none'; // Hide the planet if it doesn't match
+      planet.style.display = 'none'; // Göm planeten om den inte matchar
     }
   });
 });
