@@ -1,0 +1,282 @@
+body {
+  margin: 0;
+  background: linear-gradient(45deg, #0f1123, #1e2340, #0c1226, #1a1f3a);
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.solsystemet {
+  position: absolute; 
+  top: 50px; 
+  right: 100px; 
+  font-size: 2.5rem;
+  color: #ffffff; 
+  text-align: left; 
+  margin: 0; 
+  text-shadow: #ffffff42 0 0 15px; /* Glödande effekt */
+}
+
+
+/* Behållare för planetresultat (sökresultat) */
+.planet-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 0%;
+  padding: 10px;
+  overflow: visible;  /* Fixad overflow-egenskap */
+  width: 100%; /* Se till att behållaren tar upp hela bredden */
+  height: 100%; /* Säkerställ att planeterna inte klipps bort */
+}
+
+/* Planet-styling */
+.planet {
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrerar texten inuti planeten */
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; /* Möjliggör absolut positionering för span */
+  width: 80px; /* Håller planetens storlek oförändrad */
+  height: 80px;
+  background-color: #f00; /* Lagt till bakgrundsfärg för testning */
+}
+
+/* Positionera namnet ovanför planeten */
+.planet .planet-name {
+  position: absolute;
+  top: -40px;  /* Justerat värde för att flytta texten längre ovanför planeten */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-transform: capitalize;
+  z-index: 2; /* Ökat z-index för att säkerställa att det är ovanför planeten */
+  opacity: 0; /* Döljer namnet som standard */
+  transition: opacity 0.3s ease; /* Mjuk övergång för opaciteten */
+}
+
+/* Hover-effekt för planeter - visa namnet */
+.planet:hover .planet-name {
+  opacity: 1; /* Visa planetens namn vid hovring */
+  visibility: visible;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover-effekt för planeter */
+.planet:hover {
+  transform: scale(1.2);  /* Zoom-effekt */
+  box-shadow: 0 0 25px 15px rgba(255, 255, 255, 0.5);  /* Glödande effekt */
+}
+
+.sun {
+  background-color: #ffd700;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0.5);
+  position: relative; /* För positionering av pseudo-elementet */
+}
+
+.sun::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110px; /* Ringens storlek */
+  height: 110px;
+  border: 3px solid rgba(255, 255, 0, 0.6); /* Färg och transparens för ringen */
+  border-radius: 50%; /* Gör den cirkulär */
+  animation: pulse 10s infinite; /* Valfri glödeffekt */
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mer kommande... */
+
+.mercury {
+  background-color: #a6a6a6;
+  width: 5px;
+  height: 5px;
+  box-shadow: 0 0 8px 4px rgba(166, 166, 166, 0.5);
+}
+
+.venus {
+  background-color: #d9b76e;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 12px 6px rgba(217, 183, 110, 0.5);
+}
+
+.earth {
+  background-color: #4a90e2;
+  width: 22px;
+  height: 22px;
+  box-shadow: 0 0 15px 8px rgba(74, 144, 226, 0.4);
+}
+
+.mars {
+  background-color: #d9534f;
+  width: 15px;
+  height: 15px;
+  box-shadow: 0 0 10px 5px rgba(217, 83, 79, 0.5);
+}
+
+.jupiter {
+  background-color: #e2a76f;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 0 20px 10px rgba(226, 167, 111, 0.5);
+}
+
+.saturn {
+  background-color: #d2b48c;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  box-shadow: 0 0 20px 10px rgba(210, 180, 140, 0.4);
+}
+
+.saturn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px; /* Justera detta för ringens storlek */
+  height: 5px; /* Justera detta för ringens storlek */
+  border: 3px solid rgba(210, 180, 140, 0.6); /* Matcha Saturnus färg med lätt transparens */
+  border-radius: 50%; /* Gör det till en perfekt cirkel */
+  box-shadow: 0 0 10px rgba(210, 180, 140, 0.5); /* Valfri glödeffekt för ringen */
+  z-index: -1; /* Ser till att ringen visas bakom Saturnus */
+  animation: wiggle 5s ease-in-out infinite; /* Tillämpa viftande animation */
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(5deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(-5deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+.uranus {
+  background-color: #9bbce6;
+  width: 28px;
+  height: 28px;
+  box-shadow: 0 0 15px 7px rgba(155, 188, 230, 0.4);
+}
+
+.neptune {
+  background-color: #6f94bf;
+  width: 25px;
+  height: 25px;
+  box-shadow: 0 0 15px 7px rgba(111, 148, 191, 0.4);
+}
+
+/* Styling för sökfältet */
+.search-bar {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.search-bar input {
+  border: none;
+  background: none;
+  color: white;
+  padding: 5px;
+  margin-right: 5px;
+  outline: none;
+  font-size: 16px;
+}
+
+
+
+
+
+/* Glödande och pulserande stjärna */
+.flying-star {
+  position: absolute;
+  top: 10px; 
+  left: 10px;  
+  width: 10px;  
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;  
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); 
+  animation: pulsate 3s ease-in-out infinite, move-around 30s linear infinite;
+}
+
+/* Pulserande animation */
+@keyframes pulsate {
+  0%, 100% {
+    transform: scale(1);  
+    opacity: 1;  
+  }
+  50% {
+    transform: scale(1.2);  
+    opacity: 0.6;  
+  }
+}
+
+/* Flytta stjärnan från övre vänstra till utanför skärmen */
+@keyframes move-around {
+  0% {
+    top: 10px;
+    left: 10px; 
+  }
+  50% {
+    top: 150px;
+    left: 50vw; 
+  }
+  100% {
+    top: 300px;
+    left: 100vw; 
+  }
+}
