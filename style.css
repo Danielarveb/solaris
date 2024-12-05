@@ -102,7 +102,7 @@ body {
   height: 110px;
   border: 3px solid rgba(255, 255, 0, 0.6); /* Färg och transparens för ringen */
   border-radius: 50%; /* Gör den cirkulär */
-  animation: pulse 10s infinite; /* Valfri glödeffekt */
+  animation: pulse 10s infinite; /* glödeffekt */
 }
 
 @keyframes pulse {
@@ -120,7 +120,7 @@ body {
   }
 }
 
-/* Mer kommande... */
+/* Alla planeter har egna storlekar och färger*/
 
 .mercury {
   background-color: #a6a6a6;
@@ -171,11 +171,11 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70px; /* Justera detta för ringens storlek */
-  height: 5px; /* Justera detta för ringens storlek */
+  width: 70px; /* för ringens storlek! */
+  height: 5px; /* för ringens storlek! */
   border: 3px solid rgba(210, 180, 140, 0.6); /* Matcha Saturnus färg med lätt transparens */
-  border-radius: 50%; /* Gör det till en perfekt cirkel */
-  box-shadow: 0 0 10px rgba(210, 180, 140, 0.5); /* Valfri glödeffekt för ringen */
+  border-radius: 50%; 
+  box-shadow: 0 0 10px rgba(210, 180, 140, 0.5); /* glödeffekt för ringen */
   z-index: -1; /* Ser till att ringen visas bakom Saturnus */
   animation: wiggle 5s ease-in-out infinite; /* Tillämpa viftande animation */
 }
