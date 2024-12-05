@@ -40,3 +40,8 @@ Saturnus:
 Dess ringar är animerade för att skapa en realistisk och levande känsla.
 
 
+svårgiheter och lärdomar:
+Jag tänkte i början på att göra webbsidan på engelska. vilket också ledde till att vissa delar av koden blev på engelska. När jag väl bestämde mig mitt i för att byta till svenka upptäckte jag många svårigheter med javascripten och html men lät det mesta vara. Istället fokuserade jag på att innehållet på webbsidan ser bra ut och är på svenska. inför framtiden ska koden och allting helst vara på ett språk. 
+:)
+
+
